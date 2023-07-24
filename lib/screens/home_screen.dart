@@ -13,16 +13,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Column(children: [
         Expanded(
+          flex: 1,
           child: Container(color: Colors.red),
-          flex: 1,
         ),
         Expanded(
+          flex: 1,
           child: Container(color: Colors.blue),
-          flex: 1,
         ),
         Expanded(
-          child: Container(color: Colors.green),
           flex: 1,
+          child: Container(color: Colors.green),
         ),
       ]),
     );
