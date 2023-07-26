@@ -51,7 +51,7 @@ class MeetingScreen extends StatelessWidget {
       const Expanded(
         child: Center(
           child: Text(
-            "Create or Join Meetings with just a Click!",
+            "Create or Join Meeting with just a Click!",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),
