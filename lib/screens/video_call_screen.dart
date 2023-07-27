@@ -15,6 +15,7 @@ late TextEditingController nameController;
 
 @override
 class _VidoeCallScreenState extends State<VidoeCallScreen> {
+  @override
   void initState() {
     meetingIdController = TextEditingController();
     nameController = TextEditingController(text: _autoMethods.user.displayName);
@@ -55,9 +56,10 @@ class _VidoeCallScreenState extends State<VidoeCallScreen> {
                 decoration: const InputDecoration(
                     fillColor: secondaryBackgroundColor,
                     filled: true,
-                    contentPadding: EdgeInsets.fromLTRB(16, 8, 0, 0),
                     border: InputBorder.none,
+                    contentPadding: EdgeInsets.fromLTRB(16, 8, 0, 0),
                     hintText: "Name"))),
+
       ]),
     );
   }
