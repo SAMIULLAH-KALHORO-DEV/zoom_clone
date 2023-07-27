@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jitsi_meet_v1/jitsi_meet.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/utils/colors.dart';
+import 'package:zoom_clone/widgets/meeting_option.dart';
 
 class VidoeCallScreen extends StatefulWidget {
   const VidoeCallScreen({super.key});
@@ -12,6 +14,8 @@ class VidoeCallScreen extends StatefulWidget {
 final AutoMethods _autoMethods = AutoMethods();
 late TextEditingController meetingIdController;
 late TextEditingController nameController;
+bool isAudioMuted = true;
+bool isVideoMuted = true;
 
 @override
 class _VidoeCallScreenState extends State<VidoeCallScreen> {
@@ -22,6 +26,15 @@ class _VidoeCallScreenState extends State<VidoeCallScreen> {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    meetingIdController.dispose();
+    nameController.dispose();
+    JitsiMeet.removeAllListeners();
+  }
+
+  _joinMeeting() { }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +72,40 @@ class _VidoeCallScreenState extends State<VidoeCallScreen> {
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.fromLTRB(16, 8, 0, 0),
                     hintText: "Name"))),
-
+        const SizedBox(height: 20),
+        InkWell(
+          onTap: _joinMeeting,
+          child: const Padding(
+            padding: EdgeInsets.all(8),
+            child: Text(
+              "Join",
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        MeetingOption(
+          text: "Mute Audio ",
+          isMute: isAudioMuted,
+          onChange: onAudioMuted,
+        ),
+        MeetingOption(
+            text: "Turn of my Video ",
+            isMute: isVideoMuted,
+            onChange: onVideoMuted),
       ]),
     );
+  }
+
+  onAudioMuted(bool val) {
+    setState(() {
+      isAudioMuted = val;
+    });
+  }
+
+  onVideoMuted(bool val) {
+    setState(() {
+      isVideoMuted = val;
+    });
   }
 }
