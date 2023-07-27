@@ -10,7 +10,6 @@ class AutoMethods {
 
   Stream<User?> get authChanges => _auth.authStateChanges();
   User get user => _auth.currentUser!;
-  
 
   Future<bool> signInWithGoogle(BuildContext context) async {
     bool res = false;
@@ -43,5 +42,13 @@ class AutoMethods {
       res = false;
     }
     return res;
+  }
+
+  void singOut() async {
+    try {
+      _auth.signOut();
+    } catch (e) {
+      print(e);
+    }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/utils/colors.dart';
-import 'package:zoom_clone/widgets/home_meeting_button.dart';
+import 'package:zoom_clone/widgets/custom_button.dart';
 
 import 'history_meeting_screen.dart';
 import 'meeting_screen.dart';
@@ -21,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> pages = [
-     MeetingScreen(),
+    MeetingScreen(),
     const HistoryMeetingScreen(),
     const Text("Contects"),
-    const Text("Setting"),
+    CustomBotton(text: "Log Out ", onPressed: () => AutoMethods().singOut())
   ];
 
   @override
