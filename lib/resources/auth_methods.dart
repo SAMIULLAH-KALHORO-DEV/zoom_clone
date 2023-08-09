@@ -48,6 +48,7 @@ class AutoMethods {
     try {
       _auth.signOut();
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }

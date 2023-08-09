@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zoom_clone/screens/extra_feature_qrScanner/result_screen.dart';
 // import 'package:mobile_scanner/mobile_scanner.dart';
 // import 'package:qr_scanner/result_screen.dart';
 
