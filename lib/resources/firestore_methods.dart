@@ -21,6 +21,7 @@ class FirestoreMethods {
         'createdAt': DateTime.now(),
       });
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }
