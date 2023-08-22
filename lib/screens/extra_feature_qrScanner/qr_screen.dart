@@ -66,7 +66,7 @@ class _QRscreenState extends State<QRscreen> {
           //             ));
           //       }
           //     },
-        
+        // added some comments 
 
           //   ),
           // ),
